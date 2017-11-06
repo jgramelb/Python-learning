@@ -6,7 +6,7 @@ while True:
     if num == 'done' :
         break
     try:
-        num = float(num)
+        num = int(num)
     except:
         print('Invalid input')
         continue
