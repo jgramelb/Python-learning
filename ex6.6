@@ -1,0 +1,35 @@
+#Experimentation with strings
+
+str1 = 'hello world'
+str2 = 'HELLO WORLD'
+strDE = 'ß'
+strTAB = '1234	5678	90'
+
+a = str1.capitalize()
+print(a)
+
+#b = strDE.casefold()
+#print(b)
+
+c = str2.center(50,'s')
+print(c)
+
+d = str2.count('LO', 2, 30)
+print(d)
+
+#e = str1.encode(encoding='utf-8', errors='strict')
+#'ignore', 'replace', 'xmlcharrefreplace', 'backslashreplace'
+#print(e)
+
+f = str1.endswith('ld')
+print(f)
+
+g = strTAB.expandtabs(20)
+print(g)
+
+Add = 'The sum of 1+2 is {0}'
+h = Add.format(1+2)
+print(h)
+
+i = str1.replace('o','X')
+print(i)
