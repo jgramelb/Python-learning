@@ -1,0 +1,5 @@
+lst = ['scotch tape', 'black gel pens', 'black ballpoint pens', 'post it notes', 'can air cleaner', 'lysol wipes', 'C batteries for door bell', 'dishwasher soap', 'small binder clips', 'glue sticks', 'white out', 'paper pro stapler', '#2 pencils', 'white erasers']
+
+
+for item in lst:
+    print(item)
