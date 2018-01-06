@@ -1,41 +1,30 @@
+#assignment 11 exercise 2
+
 import re
 
 fname = input('Enter a file name: ')
 fhandle = open(fname)
 
-#initialize count for 0
-count = 0
-#want to create a list to add all numbers to
-lst = list()
 #want to read file here
-for line in fhandle:
 
+total = 0
+count = 0
+for line in fhandle:
     #strip the line of stupid spaces
     line = line.rstrip()
-    #make t all lowercase
-    line = line.lower()
     #print for reference
     #print(line)
 
-    #look for all integers using re.findall()
-    x = re.findall('^New .*: ([0-9]+)',line)
-    #look for regular expressin of 0-9 +  to convert strings to integers
-    if len(x) > 0 :
+    #look for all integers using re.findall() with pattern of New Revision
+    x = re.findall('New Revision: ([0-9.]+)',line)
 
-        #for each number, add to the empty list. keep extending.
-        lst.extend(x)
-
-    count = count + 1
+    #for each item in the string, we will iterate over each character
+    for nums in range(len(x)):
+                            #if it is a string number, convert to string
+                            #ADD IT TO TOTAL :)
+        total = total + int(x[nums])
+        count = count + 1
 #reference: print this list of all numbers(in string form) in the thing
-#print(lst)
+average = total/count
+print(average)
 
-#initialize the taol
-total = 0
-#for each number inside of the list, add them up
-for num in lst:
-    #want to convert number string into integers
-    numint = int(num)
-    #add to total
-    total = total + numint
-#print out final total/count
-print(total/count)
