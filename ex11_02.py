@@ -24,7 +24,8 @@ for line in fhandle:
                             #ADD IT TO TOTAL :)
         total = total + int(x[nums])
         count = count + 1
-#reference: print this list of all numbers(in string form) in the thing
+
+        #print for reference
 average = total/count
 print(average)
 
