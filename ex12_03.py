@@ -44,7 +44,7 @@ for i in range(count):
     #reference:
     #print(lstsites[position-1])
 
-    #DELETE THE LIST SO THIS SHIT DONT BLOW UP
+    #DELETE THE LIST SO THIS  DONT BLOW UP
     del lstsites[:]
 #print the last URL homie
 print('Retrieving:', url)
