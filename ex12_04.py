@@ -33,7 +33,15 @@ try:
         #reads webpage here.
         mysock.connect((HOSTname, 80))
 
-    elif not HOST.startswith('https://'):
+    elif not HOST.startswith('http://'):
+        #use split to break the URL so that I can extrac the host name for socket connect call.
+        HOSTname = HOST.split('/')
+        HOSTname = HOSTname[0]
+        mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        #reads webpage here.
+        mysock.connect((HOSTname, 80))
+        
+    elif not HOST.startswith('http://'):
         #use split to break the URL so that I can extrac the host name for socket connect call.
         HOSTname = HOST.split('/')
         HOSTname = HOSTname[0]
