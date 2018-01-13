@@ -15,49 +15,11 @@ try:
     HOST = input('Enter a URL - ') #prompts user for the URL for that it can read any webpage
     HOST = HOST.lower() #convert the input into lowercase letters
 
-    if HOST.startswith('http://'):
-        #use split to break the URL so that I can extrac the host name for socket connect call.
-        HOSTname = HOST.split('/')
-        HOSTname = HOSTname[2]
-        mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #reads webpage here.
-        mysock.connect((HOSTname, 80))
-        fhand = urllib.request.urlopen(HOST)
-
-    elif HOST.startswith('https://'):
-        #use split to break the URL so that I can extrac the host name for socket connect call.
-        HOSTname = HOST.split('/')
-        HOSTname = HOSTname[2]
-        mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #reads webpage here.
-        mysock.connect((HOSTname, 80))
-
-    elif not HOST.startswith('https://'):
-        #use split to break the URL so that I can extract the host name for socket connect call.
-        HOSTname = HOST.split('/')
-        HOSTname = HOSTname[0]
-        mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #reads webpage here.
-        mysock.connect((HOSTname, 80))
 except:
     print('You have entered an improperly formatted or non-exisent URL - ', HOST)
     exit()
 
-#get command
-cmd = ('GET '+ HOST + ' HTTP/1.0\r\n\r\n').encode() #\r\n\r\n is the default windows style for line separator
-#send information from website to me.
-mysock.send(cmd)
 fhand = urllib.request.urlopen(HOST)
-
-#No need write out the headers.
-#let's control how much data we can read at one time, every time we ask for new data.
-while True:
-    #REceive data here
-    data = mysock.recv(512) #512 represents how many characters we get each time we ask for new data
-    #If there is no data,  break
-    if (len(data) < 1):
-        break
-#No need print the data
 
 #initialize the counts
 counts = 0
@@ -74,5 +36,3 @@ for line in fhand:
 
 #Print out how many characters in the document
 print('There are',counts, 'characters')
-#done reading from the socket/ done reading from webpage.
-mysock.close()
