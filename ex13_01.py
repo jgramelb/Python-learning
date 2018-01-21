@@ -11,25 +11,31 @@
 import urllib.request, urllib.parse, urllib.error
 import xml.etree.ElementTree as ET
 
-serviceurl = input('Enter a URL')
-#'http://maps.googleapis.com/maps/api/geocode/xml?'
+#serviceurl = 'http://maps.googleapis.com/maps/api/geocode/xml?'
+URL = input('Enter URL with XML file - ')
+print('Retrieving', URL)
 
-while True:
-    address = input('Enter location: ')
-    if len(address) < 1: break
+#REtrive data here
+uh = urllib.request.urlopen(URL)
+data = uh.read()
 
-    url = serviceurl + urllib.parse.urlencode({'address': address})
-    print('Retrieving', url)
-    uh = urllib.request.urlopen(url)
-    data = uh.read()
-    print('Retrieved', len(data), 'characters')
-    print(data.decode())
-    tree = ET.fromstring(data)
+#Print how many characters we've retrieved in the whole xml document
+print('Retrieved', len(data), 'characters')
 
-    results = tree.findall('result')
-    lat = results[0].find('geometry').find('location').find('lat').text
-    lng = results[0].find('geometry').find('location').find('lng').text
-    location = results[0].find('formatted_address').text
+#We get data from XML, call it tree
+tree = ET.fromstring(data)
 
-    print('lat', lat, 'lng', lng)
-    print(location)
+#We make a list of all of the count tags
+counts = tree.findall('comments/comment/count')
+#We print how many XML elements
+print('Count', len(counts))
+
+#initialize total
+total = 0
+#want to sum up all of the count in here
+for count in counts:
+    #print(count.text)
+    count = int(count.text)
+    total = total + count
+
+print('Sum:', total)
