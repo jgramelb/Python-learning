@@ -10,20 +10,21 @@ import json
 import urllib.request, urllib.parse, urllib.error
 
 
-inputURL = input('Enter URL - ')
+address = input('Enter location - ')
 
 
 while True:
-    print('')
-    address = input('Enter location - ')
-    if len(address) < 1: break
+    #print('')
+    #address = input('Enter location - ')
+    #if len(address) < 1: break
 
-    url = inputURL #+ urllib.parse.urlencode({'address': address})
+    url = address #+ urllib.parse.urlencode({'address': address})
     print('Retrieving', url)
     uh = urllib.request.urlopen(url)
     data = uh.read()#.decode()
     print('Retrieved', len(data), 'characters')
     #print(data)
+    break
 
 jsinfo = json.loads(data)
 
