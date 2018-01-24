@@ -9,23 +9,25 @@
 import json
 import urllib.request, urllib.parse, urllib.error
 
-
 address = input('Enter location - ')
+#except:
+    #print('You entered an invalid URL -', address)
+    #quit()
 
 
 while True:
-    #print('')
-    #address = input('Enter location - ')
-    #if len(address) < 1: break
-
-    url = address #+ urllib.parse.urlencode({'address': address})
-    print('Retrieving', url)
+    #url = address #+ urllib.parse.urlencode({'address': address})
+    try:
+        print('Retrieving', url)
+    except:
+        print('You entered an invalid URL -', address)
+        quit()
     uh = urllib.request.urlopen(url)
     data = uh.read()#.decode()
     print('Retrieved', len(data), 'characters')
     #print(data)
     break
-
+#load the json data
 jsinfo = json.loads(data)
 
 commentcount = jsinfo['comments']#[0]['count']
