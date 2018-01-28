@@ -9,24 +9,22 @@
 import json
 import urllib.request, urllib.parse, urllib.error
 
-address = input('Enter location - ')
+url = input('Enter location - ')
 #except:
     #print('You entered an invalid URL -', address)
     #quit()
 
 
-while True:
     #url = address #+ urllib.parse.urlencode({'address': address})
-    try:
-        print('Retrieving', url)
-    except:
-        print('You entered an invalid URL -', address)
-        quit()
-    uh = urllib.request.urlopen(url)
-    data = uh.read()#.decode()
-    print('Retrieved', len(data), 'characters')
+try:
+    print('Retrieving', url)
+except:
+    print('You entered an invalid URL -', url)
+    quit()
+uh = urllib.request.urlopen(url)
+data = uh.read()#.decode()
+print('Retrieved', len(data), 'characters')
     #print(data)
-    break
 #load the json data
 jsinfo = json.loads(data)
 
@@ -43,3 +41,4 @@ for count in commentcount:
     total = total + count
 
 print('Sum:', total)
+
