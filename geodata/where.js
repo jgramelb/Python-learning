@@ -296,6 +296,5 @@ myData = [
 [37.6782034,-97.41333139999999, 'W University St, Wichita, KS, USA'],
 [40.4469796,-3.7278167, 'Av. Complutense, Madrid, Madrid, Spain'],
 [29.6524714,-95.1358224, 'Patras Dr, Pasadena, TX 77505, USA'],
-[33.6778327,-117.8151285, 'Padua, Irvine, CA 92614, USA'],
-[20.9178314,-156.6966248, 'Kaanapali, HI 96761, USA']
+[33.6778327,-117.8151285, 'Padua, Irvine, CA 92614, USA']
 ];
